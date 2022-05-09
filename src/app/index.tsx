@@ -52,6 +52,7 @@ import { PageContainer } from './containers/PageContainer';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { PerpetualPageLoadable } from './pages/PerpetualPage/Loadable';
+import { CompetitionPage } from './pages/PerpetualPage/components/CompetitionPage';
 
 const title = !isMainnet ? `Sovryn ${currentNetwork}` : 'Sovryn';
 
@@ -131,11 +132,18 @@ export function App() {
                   component={FastBtcPage}
                 />
                 {!isMainnet && (
-                  <Route
-                    exact
-                    path="/perpetuals"
-                    component={PerpetualPageLoadable}
-                  />
+                  <>
+                    <Route
+                      exact
+                      path="/perpetuals"
+                      component={PerpetualPageLoadable}
+                    />
+                    <Route
+                      exact
+                      path="/perpetuals/competition"
+                      component={CompetitionPage}
+                    />
+                  </>
                 )}
                 <Route component={NotFoundPage} />
               </Switch>
